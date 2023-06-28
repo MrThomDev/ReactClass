@@ -31,7 +31,7 @@ const SignUpForm = () => {
     event.preventDefault();
     const { email, password, confirmPassword } = formFields;
 
-    if (password != confirmPassword) {
+    if (password !== confirmPassword) {
       alert("Passwords do not match");
       return;
     }
@@ -41,8 +41,9 @@ const SignUpForm = () => {
         email,
         password
       );
+
       await createUserDocumentFromAuth(user, { displayName });
-      console.log(user);
+
       resetFormFields();
     } catch (err) {
       if (err.code === "auth/email-already-in-use") {
